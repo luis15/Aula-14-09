@@ -17,7 +17,7 @@
         android:layout_column="0"
         android:layout_row="0" />
     <EditText
-        android:id="@+id/txt1"
+        android:id="@+id/nome"
         android:layout_column="1"
         android:layout_row="0"
         android:layout_height="40dp"
@@ -30,7 +30,7 @@
         android:layout_column="0"
         android:layout_row="1" />
     <Spinner
-        android:id="@+id/spn1"
+        android:id="@+id/uf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="1"
@@ -93,7 +93,7 @@
                 android:text="Formação:"
                 />
             <RadioGroup
-                android:id="@+id/rdg"
+                android:id="@+id/formacao"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent">
                 <RadioButton
@@ -123,7 +123,7 @@
         android:layout_row="3"
         android:layout_column="0"
         android:layout_columnSpan="2"
-        android:id="@+id/swt1"
+        android:id="@+id/curioso"
         />
     <Button
         android:text="Add Player"
