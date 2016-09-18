@@ -17,17 +17,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE `mobile` (\n" +
-                "  `idmobile` int(11) NOT NULL AUTO_INCREMENT,\n" +
-                "  `nome` varchar(45) DEFAULT NULL,\n" +
-                "  `uf` varchar(2) DEFAULT NULL,\n" +
-                "  `xml` tinyint(1) DEFAULT NULL,\n" +
-                "  `java` tinyint(1) DEFAULT NULL,\n" +
-                "  `ux` tinyint(1) DEFAULT NULL,\n" +
-                "  `ui` tinyint(1) DEFAULT NULL,\n" +
-                "  `curioso` tinyint(1) DEFAULT NULL,\n" +
-                "  `formacao` varchar(45) DEFAULT NULL,\n" +
-                "  PRIMARY KEY (`idmobile`)\n" +
+        db.execSQL("CREATE TABLE mobile ( \n" +
+                "_id INTEGER PRIMARY KEY AUTOINCREMENT, \n" +
+                "nome Text, \n" +
+                "uf INTEGER NOT NULL, \n" +
+                "xml INTEGER NOT NULL, \n" +
+                "java INTEGER NOT NULL, \n" +
+                "ux INTEGER NOT NULL, \n" +
+                "ui INTEGER NOT NULL, \n" +
+                "curioso INTEGER NOT NULL, \n" +
+                "formacao INTEGER NOT NULL \n" +
                 ")");
     }
 
