@@ -1,6 +1,7 @@
 package com.example.coelh.a14_09_1;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.net.Uri;
@@ -97,7 +98,10 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
     }
-
+    public void databaseView(View view){
+        Intent in = new Intent(this, DatabaseViewActivity.class);
+        startActivity(in);
+    }
     @Override
     public void onStart() {
         super.onStart();
@@ -137,4 +141,5 @@ public class MainActivity extends AppCompatActivity {
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
     }
+
 }

@@ -4,9 +4,15 @@
         <item>SP</item>
         <item>RJ</item>
         <item>MG</item>
-        <item>ES</item>
-        <item>RS</item>
-        <item>SC</item>
-        <item>PR</item>
     </string-array>
+    <string-array name="flags">
+        <item>@drawable/f1</item>
+        <item>@drawable/f2</item>
+        <item>@drawable/f3</item>
+
+    </string-array>
+    <string name="title_activity_database_view">DatabaseViewActivity</string>
+    <string name="remove">Remover</string>
+    <string name="modify">Atualizar</string>
+
 </resources>
