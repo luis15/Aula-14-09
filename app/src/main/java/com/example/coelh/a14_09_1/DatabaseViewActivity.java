@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -71,7 +72,10 @@ public class DatabaseViewActivity extends AppCompatActivity {
         db.close();
     }
     public void removePlayer(View view){
-        Toast.makeText(DatabaseViewActivity.this, "Botão delete = "+ view.getTag(0x80000001), Toast.LENGTH_LONG).show();
+        DataBaseHelper dbHelper = new DataBaseHelper(this);
+        db = dbHelper.getReadableDatabase();
+        db.delete("mobile", "_id = ?", new String[]{view.getTag(0x80000001).toString()});
+        NavUtils.navigateUpTo(this, new Intent(this,PlayersCursorAdapter.class));
     }
     public void updatePlayer(View view){
         Toast.makeText(DatabaseViewActivity.this, "Botão update = "+ view.getTag(0x80000002), Toast.LENGTH_LONG).show();
