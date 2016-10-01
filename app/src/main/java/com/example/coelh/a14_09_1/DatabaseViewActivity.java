@@ -18,8 +18,12 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
+import static com.example.coelh.a14_09_1.R.styleable.FloatingActionButton;
+import static com.example.coelh.a14_09_1.R.styleable.Toolbar;
+
 public class DatabaseViewActivity extends AppCompatActivity {
     private Cursor cursor;
+    private CursorAdapter cursorAdapter;
     private SQLiteDatabase db;
     private ListView listView;
 
@@ -61,7 +65,7 @@ public class DatabaseViewActivity extends AppCompatActivity {
         db = dbHelper.getReadableDatabase();
 
         cursor = db.query("mobile", new String[]{"_id", "nome", "uf", "curioso", "formacao"}, null, null, null, null, null);
-        CursorAdapter cursorAdapter = new PlayersCursorAdapter(this, android.R.layout.simple_list_item_1,
+        cursorAdapter = new PlayersCursorAdapter(this, android.R.layout.simple_list_item_1,
                 cursor, new String[]{"nome"}, new int[]{android.R.id.text1},0);
 
         listView.setAdapter(cursorAdapter);
@@ -72,11 +76,16 @@ public class DatabaseViewActivity extends AppCompatActivity {
         db.close();
     }
     public void removePlayer(View view){
+
         DataBaseHelper dbHelper = new DataBaseHelper(this);
         db = dbHelper.getReadableDatabase();
         db.delete("mobile", "_id = ?", new String[]{view.getTag(0x80000001).toString()});
-        NavUtils.navigateUpTo(this, new Intent(this,PlayersCursorAdapter.class));
+        cursor.close();
+        cursor = db.query("mobile", new String[]{"_id", "nome", "uf", "curioso", "formacao"}, null, null, null, null, null);
+        cursorAdapter.changeCursor(cursor);
+        cursorAdapter.notifyDataSetChanged();
     }
+
     public void updatePlayer(View view){
         Toast.makeText(DatabaseViewActivity.this, "Botão update = "+ view.getTag(0x80000002), Toast.LENGTH_LONG).show();
     }
