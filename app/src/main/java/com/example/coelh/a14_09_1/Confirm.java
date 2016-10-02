@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -35,6 +36,9 @@ public class Confirm extends AppCompatActivity {
         val.put("ux", extra.getInt("isUX"));
         val.put("curioso", extra.getInt("isCurioso"));
 
+        TextView confirmName =  (TextView)findViewById(R.id.confirmName);
+        confirmName.setText(extra.getString("nome"));
+
 }
     public void inserir(View view) {
         try {
@@ -43,6 +47,7 @@ public class Confirm extends AppCompatActivity {
             db.insert("mobile", null, val);
             Log.i("Confirm", "Inserido com sucesso");
             db.close();
+            finish();
         } catch (SQLiteException e) {
             Log.i("Confirm", "Falha na inserção");
             return;
