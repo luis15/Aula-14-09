@@ -19,6 +19,8 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.io.Console;
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView nome;
@@ -77,26 +79,21 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         ContentValues val = new ContentValues();
-        val.put("nome", name);
-        val.put("formacao", grauDeEstudo);
-        val.put("uf", estado);
-        val.put("xml", isXml);
-        val.put("java", isJava);
-        val.put("ui", isUi);
-        val.put("ux", isUx);
-        val.put("curioso", isCurioso);
 
-        DataBaseHelper dbHelper = new DataBaseHelper(this);
-        try {
-            SQLiteDatabase db = dbHelper.getReadableDatabase();
-            db.insert("mobile", null, val);
-            Log.i("Main Activity", "Inserido com sucesso");
 
-            db.close();
-        } catch (SQLiteException e) {
-            Log.i("Main Activity", "Falha na inserção");
-            return;
-        }
+        Intent in = new Intent(this, Confirm.class);
+        in.putExtra("nome", name);
+        in.putExtra("estado", estado);
+        in.putExtra("grauDeEstudo", grauDeEstudo);
+        in.putExtra("isXML", isXml);
+        in.putExtra("isJava", isJava);
+        in.putExtra("isUI", isUi);
+        in.putExtra("isUX", isUx);
+        in.putExtra("isCurioso", isCurioso);
+
+
+        startActivity(in);
+        Log.i("Main Activity", "Entrei certo");
     }
     public void databaseView(View view){
         Intent in = new Intent(this, DatabaseViewActivity.class);

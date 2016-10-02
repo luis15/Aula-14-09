@@ -26,6 +26,10 @@
         <activity
             android:name=".DatabaseViewActivity"
             android:label="@string/title_activity_database_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Confirm"
+            android:label="@string/title_activity_confirm"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -14,5 +14,7 @@
     <string name="title_activity_database_view">DatabaseViewActivity</string>
     <string name="remove">Remover</string>
     <string name="modify">Atualizar</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_confirm">Confirm</string>
 
 </resources>
