@@ -32,7 +32,6 @@ public class PlayersCursorAdapter extends CursorAdapter {
          Button btnRemove = (Button)view.findViewById(R.id.btnRemove);
          Button btnUpdate = (Button)view.findViewById(R.id.btnModify);
 
-
          txtName.setText(cursor.getString(1));
 
          int status = cursor.getInt(3);

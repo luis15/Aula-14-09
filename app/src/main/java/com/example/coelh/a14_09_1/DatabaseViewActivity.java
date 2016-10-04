@@ -87,7 +87,9 @@ public class DatabaseViewActivity extends AppCompatActivity {
     }
 
     public void updatePlayer(View view){
-        Toast.makeText(DatabaseViewActivity.this, "Botão update = "+ view.getTag(0x80000002), Toast.LENGTH_LONG).show();
+        Intent in = new Intent(this, Update.class);
+        in.putExtra("id",view.getTag(0x80000002).toString() );
+        startActivity(in);
     }
 
 

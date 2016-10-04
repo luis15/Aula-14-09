@@ -78,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 grauDeEstudo = 3;
                 break;
         }
-        ContentValues val = new ContentValues();
-
 
         Intent in = new Intent(this, Confirm.class);
         in.putExtra("nome", name);
